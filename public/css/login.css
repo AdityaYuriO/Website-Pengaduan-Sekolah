@@ -1,0 +1,338 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins','Segoe UI',sans-serif;
+}
+
+
+body {
+
+    min-height:100vh;
+
+    display:flex;
+
+    background:#061b3a;
+
+}
+
+
+
+/* ================= LEFT SIDE ================= */
+
+
+.login-left {
+
+    width:50%;
+
+    background:
+    linear-gradient(
+        rgba(4,32,75,.85),
+        rgba(4,32,75,.85)
+    ),
+    url('https://cdn.phototourl.com/free/2026-07-28-c7903368-fcea-41ab-805f-d966353dc12d.jpg');
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+
+
+.school-logo {
+
+    width:130px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.login-left h1 {
+
+    font-size:42px;
+
+    letter-spacing:2px;
+
+    font-weight:800;
+
+}
+
+
+
+.login-left p {
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    opacity:.8;
+
+}
+
+
+
+
+
+/* ================= RIGHT SIDE ================= */
+
+
+
+.login-right {
+
+    width:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#f5eeee;
+
+}
+
+
+
+
+.login-card {
+
+
+    width:70%;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.75);
+
+
+    border:1px solid #222;
+
+}
+
+
+
+
+
+/* TITLE */
+
+
+.login-card h2 {
+
+    text-align:center;
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+    color:#111;
+
+}
+
+
+
+.login-card .subtitle {
+
+    text-align:center;
+
+    font-size:18px;
+
+    margin-bottom:40px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* INPUT */
+
+
+
+.input-box {
+
+    position:relative;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+.input-box input {
+
+
+    width:100%;
+
+    padding:18px 60px;
+
+    border-radius:15px;
+
+    border:1.5px solid #2563eb;
+
+    outline:none;
+
+    background:#fff;
+
+    font-size:16px;
+
+}
+
+
+
+.input-box i {
+
+
+    position:absolute;
+
+    left:20px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:30px;
+
+}
+
+
+
+
+
+/* BUTTON LOGIN */
+
+
+
+.login-button {
+
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#0f4c81;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+
+.login-button:hover {
+
+    background:#2563eb;
+
+}
+
+
+
+
+
+/* ================= BACK HOME BUTTON ================= */
+
+
+.back-home {
+
+    display:block;
+
+    margin-top:18px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#0f4c81;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:.3s ease;
+
+}
+
+
+
+.back-home:hover {
+
+    color:#2563eb;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+/* MOBILE */
+
+
+
+@media(max-width:900px){
+
+
+body {
+
+    flex-direction:column;
+
+}
+
+
+
+.login-left,
+.login-right {
+
+    width:100%;
+
+}
+
+
+
+.login-left {
+
+    height:40vh;
+
+}
+
+
+
+.login-card {
+
+    width:85%;
+
+}
+
+
+
+}
