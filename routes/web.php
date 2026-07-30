@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\loginController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -19,10 +21,9 @@ Route::get('/', [HomeController::class, 'index'])
 | LOGIN
 |--------------------------------------------------------------------------
 */
-
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::get('/halaman/login', [loginController::class, 'index'])->name('login');
+Route::post('/proses/login', [loginController::class, 'login'])->name('proses.login');
+Route::post('/logout',[loginController::class, 'logout'])->name('logout');
 
 
 /*
@@ -31,10 +32,14 @@ Route::get('/login', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::middleware(['role:admin'])->group(function () {
+
+
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('halaman.admin');
 
 Route::get('/admin/kategori', function () {
     return view('admin.kategori.index');
 })->name('admin.kategori');
+
+
+});

@@ -62,7 +62,7 @@
 
 
 
-        <form method="POST" action="#">
+        <form method="POST" action="{{ route('proses.login') }}">
 
             @csrf
 
@@ -71,9 +71,9 @@
 
                 <i>✉</i>
 
-                <input 
-                    type="text"
-                    name="username"
+                <input
+                    type="email"
+                    name="email"
                     placeholder="Username"
                     required
                 >
@@ -97,7 +97,7 @@
 
 
 
-            <button class="login-button">
+            <button class="login-button" type="submit">
 
                 Login
 
