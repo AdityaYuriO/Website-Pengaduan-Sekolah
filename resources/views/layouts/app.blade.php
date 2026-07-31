@@ -35,19 +35,19 @@
                         <span>DASHBOARD</span>
                     </a>
 
-                    <a href="#"
+                    <a href="{{ route('halaman.kategori')}}"
                        class="flex items-center gap-4 px-4 py-3 rounded-full font-semibold italic text-sm text-gray-300 hover:bg-white/10 transition">
                         <i class="fa-regular text-lg fa-folder-closed"></i>
                         <span>KATEGORI</span>
                     </a>
 
-                    <a href="#"
+                    <a href="{{route('halaman.pengguna')}}"
                        class="flex items-center gap-4 px-4 py-3 rounded-full font-semibold italic text-sm text-gray-300 hover:bg-white/10 transition">
                         <i class="fa-regular text-lg fa-user"></i>
                         <span>DATA USER</span>
                     </a>
 
-                    <a href="#"
+                <a href="{{route('halaman.laporan')}}"
                        class="flex items-center gap-4 px-4 py-3 rounded-full font-semibold italic text-sm text-gray-300 hover:bg-white/10 transition">
                         <i class="fa-regular text-lg fa-file-lines"></i>
                         <span>DAFTAR PENGADUAN</span>

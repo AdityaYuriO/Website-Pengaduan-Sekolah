@@ -1,270 +1,71 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.siswa')
 
-    <title>Dashboard User - Pengaduan Sekolah</title>
+@section('title', 'Dashboard - Pengaduan Sekolah')
 
-    <link rel="stylesheet" href="{{ asset('css/user-dashboard.css') }}">
+@section('content')
+<div class="w-full max-w-2xl mx-auto text-center space-y-8 py-4">
 
-    {{-- Font --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Welcome Greeting -->
+    <div class="space-y-1">
+        <h1 class="text-3xl font-extrabold text-[#1d4d8c] tracking-wide font-serif">
+            SELAMAT DATANG,
+        </h1>
+        <h2 class="text-2xl font-bold text-[#1d4d8c] italic font-serif tracking-widest">
+            SOPIYANTI!
+        </h2>
+    </div>
 
-    {{-- Font Awesome --}}
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-
-<body>
-
-<div class="user-dashboard">
-
-    {{-- ================= SIDEBAR ================= --}}
-    <aside class="sidebar">
-
-        {{-- LOGO --}}
-        <div class="sidebar-logo">
-
-            <div class="logo-image">
-                {{-- Ganti dengan logo project kamu --}}
-                <img src="{{ asset('images/logo-sekolah.png') }}"
-                     alt="Logo Sekolah"
-                     onerror="this.style.display='none'; this.parentElement.classList.add('logo-fallback');">
-                
-                <i class="fa-solid fa-school logo-fallback-icon"></i>
+    <!-- Summary Cards Row -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
+        
+        <!-- Card 1: Laporan Saya -->
+        <div class="bg-[#dcdcdc] rounded-2xl p-5 flex flex-col items-center justify-center space-y-2 border border-gray-300/80 shadow-sm hover:shadow-md transition">
+            <!-- Icon Clipboard with Check -->
+            <div class="relative text-slate-700 my-1">
+                <i class="fa-solid fa-clipboard-list text-5xl"></i>
+                <span class="absolute -bottom-1 -right-1 bg-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] border border-white">
+                    <i class="fa-solid fa-check"></i>
+                </span>
             </div>
-
-            <div class="logo-text">
-                <span>PENGADUAN</span>
-                <span>SEKOLAH</span>
-            </div>
-
+            <div class="text-2xl font-black text-slate-900 leading-none">6</div>
+            <div class="text-xs font-bold text-slate-700">Laporan Saya</div>
         </div>
 
-
-        {{-- MENU --}}
-        <nav class="sidebar-menu">
-
-            <a href="{{ route('user.dashboard') }}"
-               class="menu-item active">
-
-                <span class="menu-icon">
-                    <i class="fa-solid fa-grip"></i>
-                </span>
-
-                <span>DASHBOARD</span>
-
-            </a>
-
-
-            <a href="#" class="menu-item">
-
-                <span class="menu-icon">
-                    <i class="fa-regular fa-folder"></i>
-                </span>
-
-                <span>KATEGORI</span>
-
-            </a>
-
-
-            <a href="#" class="menu-item">
-
-                <span class="menu-icon">
-                    <i class="fa-regular fa-clock"></i>
-                </span>
-
-                <span>RIWAYAT</span>
-
-            </a>
-
-        </nav>
-
-
-        {{-- LOGOUT --}}
-        <div class="sidebar-bottom">
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <button type="submit" class="logout-button">
-
-                    <span class="logout-icon">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </span>
-
-                    <span>LOGOUT</span>
-
-                </button>
-
-            </form>
-
+        <!-- Card 2: Menunggu -->
+        <div class="bg-[#dcdcdc] rounded-2xl p-5 flex flex-col items-center justify-center space-y-2 border border-gray-300/80 shadow-sm hover:shadow-md transition">
+            <!-- Icon Hourglass -->
+            <div class="text-slate-700 my-1">
+                <i class="fa-solid fa-hourglass-half text-5xl"></i>
+            </div>
+            <div class="text-2xl font-black text-slate-900 leading-none">4</div>
+            <div class="text-xs font-bold text-slate-700">Menunggu</div>
         </div>
 
-    </aside>
-
-
-    {{-- ================= MAIN ================= --}}
-    <main class="main-content">
-
-        {{-- HEADER --}}
-        <header class="topbar">
-
-            {{-- DATE --}}
-            <div class="date-area">
-
-                <div class="calendar-icon">
-                    <i class="fa-regular fa-calendar-days"></i>
-                </div>
-
-                <span class="date-text">
-                    {{ now()->format('F d, Y') }}
-                </span>
-
-                <i class="fa-solid fa-chevron-down date-arrow"></i>
-
+        <!-- Card 3: Selesai -->
+        <div class="bg-[#dcdcdc] rounded-2xl p-5 flex flex-col items-center justify-center space-y-2 border border-gray-300/80 shadow-sm hover:shadow-md transition">
+            <!-- Icon Check Circle -->
+            <div class="text-emerald-500 bg-white rounded-full p-1 my-1 shadow-sm">
+                <i class="fa-solid fa-circle-check text-5xl"></i>
             </div>
+            <div class="text-2xl font-black text-slate-900 leading-none">2</div>
+            <div class="text-xs font-bold text-slate-700">Selesai</div>
+        </div>
 
+    </div>
 
-            {{-- PROFILE --}}
-            <div class="profile-area">
+    <!-- Action Button: Buat Pengaduan -->
+    <div class="pt-4">
+        <a href="#" class="inline-flex items-center justify-center gap-2 bg-[#2b6eb3] hover:bg-[#1f538a] text-white text-base font-bold italic px-8 py-3 rounded-full shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+            <span>+ Buat Pengaduan</span>
+        </a>
+    </div>
 
-                <div class="profile-avatar">
-
-                    <i class="fa-regular fa-user"></i>
-
-                </div>
-
-                <div class="profile-name">
-
-                    <span>
-                        {{ auth()->user()->name ?? 'Sopi love ikbal' }}
-                    </span>
-
-                </div>
-
-            </div>
-
-        </header>
-
-
-        {{-- ================= CONTENT ================= --}}
-        <section class="dashboard-content">
-
-            {{-- WELCOME --}}
-            <div class="welcome-section">
-
-                <h1>
-                    SELAMAT DATANG,
-                </h1>
-
-                <h2>
-                    {{ strtoupper(auth()->user()->name ?? 'ROBERT WILLIAM') }}!
-                </h2>
-
-            </div>
-
-
-            {{-- STATISTICS --}}
-            <div class="stats-wrapper">
-
-                {{-- LAPORAN --}}
-                <div class="stat-card">
-
-                    <div class="stat-icon report-icon">
-
-                        <i class="fa-regular fa-clipboard"></i>
-
-                        <span class="check-small">
-                            <i class="fa-solid fa-check"></i>
-                        </span>
-
-                    </div>
-
-                    <div class="stat-number">
-                        {{ $laporanSaya ?? 6 }}
-                    </div>
-
-                    <div class="stat-label">
-                        Lapor Saya
-                    </div>
-
-                </div>
-
-
-                {{-- MENUNGGU --}}
-                <div class="stat-card">
-
-                    <div class="stat-icon waiting-icon">
-
-                        <i class="fa-regular fa-hourglass-half"></i>
-
-                    </div>
-
-                    <div class="stat-number">
-                        {{ $menunggu ?? 4 }}
-                    </div>
-
-                    <div class="stat-label">
-                        Menunggu
-                    </div>
-
-                </div>
-
-
-                {{-- SELESAI --}}
-                <div class="stat-card">
-
-                    <div class="stat-icon done-icon">
-
-                        <div class="done-circle">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-
-                    </div>
-
-                    <div class="stat-number">
-                        {{ $selesai ?? 2 }}
-                    </div>
-
-                    <div class="stat-label">
-                        Selesai
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            {{-- BUTTON --}}
-            <div class="complaint-area">
-
-                <a href="#" class="complaint-button">
-
-                    <span>+</span>
-
-                    Buat Pengaduan
-
-                </a>
-
-            </div>
-
-
-            {{-- FOOTER TEXT --}}
-            <div class="dashboard-motto">
-
-                Mari Bersama Menciptakan Sekolah Yang Lebih Baik
-
-            </div>
-
-        </section>
-
-    </main>
+    <!-- Footer Quote -->
+    <div class="pt-2">
+        <p class="text-xs font-serif font-medium text-slate-700 tracking-wide">
+            Mari Bersama Menciptakan Sekolah Yang Lebih Baik
+        </p>
+    </div>
 
 </div>
-
-</body>
-</html>
+@endsection
