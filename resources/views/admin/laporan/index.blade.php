@@ -21,25 +21,25 @@
             </div>
 
             <nav class="sidebar-menu">
-                <a href="#" class="menu-item">
+                <a href="{{ route('halaman.admin') }}" class="menu-item">
                     <span>📊</span>
                     <strong>DASHBOARD</strong>
                 </a>
-                <a href="#" class="menu-item">
+                <a href="{{ route('halaman.kategori') }}" class="menu-item">
                     <span>📂</span>
                     <strong>KATEGORI</strong>
                 </a>
-                <a href="#" class="menu-item">
+                <a href="{{ route('halaman.pengguna') }}" class="menu-item">
                     <span>👥</span>
                     <strong>DATA USER</strong>
                 </a>
-                <a href="#" class="menu-item active">
+                <a href="{{ route('halaman.laporan') }}" class="menu-item active">
                     <span>📋</span>
                     <strong>DAFTAR PENGADUAN</strong>
                 </a>
             </nav>
 
-            <form class="logout-form">
+            <form class="logout-form" method="post" action="{{ route('logout') }}">
                 <button type="submit" class="logout-button">
                     <span>🚪</span>
                     LOGOUT

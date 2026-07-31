@@ -43,7 +43,7 @@
                 <span>DASHBOARD</span>
             </a>
 
-            <a href="{{ route('wakasek.masuk') }}" class="menu-item">
+            <a href="{{ route('wakasek.pengaduan') }}" class="menu-item">
                 <span class="menu-icon">
                     <i class="fa-solid fa-inbox"></i>
                 </span>
@@ -66,7 +66,7 @@
         </nav>
 
         <div class="sidebar-bottom">
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="logout-button">
                     <span class="logout-icon">
@@ -96,7 +96,7 @@
 
             {{-- WELCOME --}}
             <div class="welcome-section">
-                <h1>Selamat Datang, Wakasek Kurikulum</h1>
+                <h1>Selamat Datang, Wakasek {{ $user->name }}</h1>
                 <p>Berikut ringkasan pengaduan pada bidang kurikulum yang perlu anda tinjau.</p>
             </div>
 

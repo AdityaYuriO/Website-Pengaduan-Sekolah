@@ -30,27 +30,31 @@ class loginController extends Controller
         $role = $user->role->nama_role;
 
         if($role == 'siswa') {
-
+            return redirect()->route('user.dashboard')->with('success', 'berhasil masuk sebagai siswa');
         }
 
         if($role == 'kepala_sekolah') {
 
         }
 
-        if($role == 'hubin') {
+        if($role == 'bk') {
 
+        }
+
+        if($role == 'hubin') {
+            return redirect()->route('wakasek.dashboard')->with('success', 'berhasil masuk sebagai hubin');
         }
 
         if($role == 'kesiswaan') {
-
+            return redirect()->route('wakasek.dashboard')->with('success', 'berhasil masuk sebagai kesiswaan');
         }
 
         if($role == 'prasarana' ) {
-
+            return redirect()->route('wakasek.dashboard')->with('success', 'berhasil masuk sebagai prasarana');
         }
 
         if($role == 'kurikulum') {
-
+            return redirect()->route('wakasek.dashboard')->with('success', 'berhasil masuk sebagai kurikulum');
         }
 
         if($role == 'admin') {

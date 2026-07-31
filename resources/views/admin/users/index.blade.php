@@ -21,7 +21,7 @@
             </div>
 
             <nav class="sidebar-menu">
-                <a href="#" class="menu-item active">
+                <a href="" class="menu-item active">
                     <span>👥</span>
                     <strong>Kelola Pengguna</strong>
                 </a>

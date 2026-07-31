@@ -43,7 +43,7 @@
                 <span>DASHBOARD</span>
             </a>
 
-            <a href="{{ route('wakasek.masuk') }}" class="menu-item">
+            <a href="{{ route('wakasek.pengaduan') }}" class="menu-item">
                 <span class="menu-icon">
                     <i class="fa-solid fa-inbox"></i>
                 </span>
@@ -66,7 +66,7 @@
         </nav>
 
         <div class="sidebar-bottom">
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="logout-button">
                     <span class="logout-icon">

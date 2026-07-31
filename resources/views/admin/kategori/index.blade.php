@@ -41,7 +41,7 @@
 
             {{-- DASHBOARD --}}
             <a
-                href="{{ url('/admin/dashboard') }}"
+                href="{{ route('halaman.admin') }}"
                 class="flex h-[35px] items-center gap-[9px] rounded-full px-3 text-[10px] font-bold italic text-white transition hover:bg-white/15">
 
                 <span class="w-5 text-center text-[20px] not-italic">
@@ -54,7 +54,7 @@
 
             {{-- KATEGORI --}}
             <a
-                href="{{ url('/admin/kategori') }}"
+                href="{{ route('halaman.kategori') }}"
                 class="flex h-[35px] items-center gap-[9px] rounded-full bg-[#0963a9] px-3 text-[10px] font-bold italic text-white">
 
                 <span class="w-5 text-center text-[20px] not-italic">
@@ -67,7 +67,7 @@
 
             {{-- DATA USER --}}
             <a
-                href="{{ url('/admin/users') }}"
+                href="{{ route('halaman.pengguna') }}"
                 class="flex h-[35px] items-center gap-[9px] rounded-full px-3 text-[10px] font-bold italic text-white transition hover:bg-white/15">
 
                 <span class="w-5 text-center text-[20px] not-italic">
@@ -80,7 +80,7 @@
 
             {{-- PENGADUAN --}}
             <a
-                href="{{ url('/admin/pengaduan') }}"
+                href="{{ route('halaman.laporan') }}"
                 class="flex h-[35px] items-center gap-[9px] rounded-full px-3 text-[10px] font-bold italic text-white transition hover:bg-white/15">
 
                 <span class="w-5 text-center text-[20px] not-italic">
@@ -96,7 +96,7 @@
         {{-- LOGOUT --}}
         <form
             method="POST"
-            action="{{ url('/logout') }}"
+            action="{{ route('logout') }}"
             class="mt-auto">
 
             @csrf

@@ -1,491 +1,143 @@
-```blade
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.app')
 
-<head>
+@section('title', 'Dashboard - Pengaduan Sekolah')
 
-    <meta charset="UTF-8">
+@section('content')
+    <!-- Header Welcome -->
+    <div class="mb-6">
+        <h1 class="text-2xl font-serif font-bold text-gray-800">Selamat Datang, Admin</h1>
+        <p class="text-gray-600 text-sm mt-1">Kelola pengaduan sekolah dengan mudah dan efisien.</p>
+    </div>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 
-    <title>Dashboard Admin - Pengaduan Sekolah</title>
-
-    <link rel="stylesheet"
-          href="{{ asset('css/admin.css') }}">
-
-</head>
-
-<body>
-
-<div class="admin-wrapper">
-
-
-    <!-- ================= SIDEBAR ================= -->
-
-    <aside class="sidebar">
-
-        <div class="sidebar-logo">
-
-            <img
-                src="https://cdn.phototourl.com/free/2026-07-28-7540ffdc-e2ba-4015-a474-4cacaa2dd3b4.jpg"
-                alt="Logo Sekolah"
-            >
-
-            <div>
-                <strong>PENGADUAN</strong>
-                <strong>SEKOLAH</strong>
+        <!-- Total Pengaduan -->
+        <div class="bg-white p-5 rounded-2xl border border-gray-300 shadow-sm flex items-center gap-4">
+            <div class="p-3 bg-blue-50 rounded-xl text-3xl text-blue-600">
+                <i class="fa-solid fa-clipboard-list"></i>
             </div>
-
+            <div>
+                <span class="text-xs font-semibold text-gray-700 block">Total Pengaduan</span>
+                <span class="text-3xl font-extrabold text-gray-900 leading-none">26</span>
+                <span class="text-xs text-gray-500 block mt-1">Semua Laporan</span>
+            </div>
         </div>
 
-
-        <nav class="sidebar-menu">
-
-            <!-- DASHBOARD -->
-            <a href="{{ url('/admin/dashboard') }}"
-               class="menu-item active">
-
-                <span>▦</span>
-
-                <strong>DASHBOARD</strong>
-
-            </a>
-
-
-            <!-- KATEGORI -->
-            <a href="{{ url('/admin/kategori') }}"
-               class="menu-item">
-
-                <span>▱</span>
-
-                <strong>KATEGORI</strong>
-
-            </a>
-
-
-            <!-- DATA USER -->
-            <a href="{{ url('/admin/users') }}"
-               class="menu-item">
-
-                <span>♙</span>
-
-                <strong>DATA USER</strong>
-
-            </a>
-
-
-            <!-- PENGADUAN -->
-            <a href="{{ url('/admin/pengaduan') }}"
-               class="menu-item">
-
-                <span>▤</span>
-
-                <strong>PENGADUAN</strong>
-
-            </a>
-
-        </nav>
-
-
-        <form method="POST" action="{{ route('logout') }}"
-              class="logout-form">
-
-            @csrf
-
-            <button type="submit"
-                    class="logout-button">
-
-                <span>↪</span>
-
-                LOGOUT
-
-            </button>
-
-        </form>
-
-    </aside>
-
-
-
-    <!-- ================= MAIN ================= -->
-
-    <main class="main-content">
-
-
-        <!-- TOPBAR -->
-
-        <header class="topbar">
-
-            <div class="date-area">
-
-                <span class="calendar-icon">▣</span>
-
-                <strong>
-                    {{ now()->format('F d, Y') }}
-                </strong>
-
-                <span>⌄</span>
-
+        <!-- Diproses -->
+        <div class="bg-white p-5 rounded-2xl border border-gray-300 shadow-sm flex items-center gap-4">
+            <div class="p-3 bg-amber-50 rounded-xl text-3xl text-amber-500">
+                <i class="fa-solid fa-[#d97706] fa-hourglass-half"></i>
             </div>
-
-
-            <!-- PROFILE ADMIN -->
-
-            <a href="{{ url('/admin/profile') }}"
-               class="admin-profile">
-
-                <div class="admin-avatar">
-
-                    <span>👨🏻‍💼</span>
-
-                </div>
-
-                <strong>
-                    {{ $user->name }}
-                </strong>
-
-            </a>
-
-        </header>
-
-
-
-        <!-- CONTENT -->
-
-        <section class="dashboard-content">
-
-
-            <!-- WELCOME -->
-
-            <div class="welcome">
-
-                <h1>
-                    Selamat Datang,
-                    {{ $user->name }}
-                </h1>
-
-                <p>
-                    Kelola pengaduan sekolah dengan mudah dan efisien.
-                </p>
-
+            <div>
+                <span class="text-xs font-semibold text-gray-700 block">Diproses</span>
+                <span class="text-3xl font-extrabold text-gray-900 leading-none">6</span>
+                <span class="text-xs text-gray-500 block mt-1">Sedang diproses</span>
             </div>
+        </div>
 
-
-
-            <!-- ================= STATISTICS ================= -->
-
-            <div class="stats-grid">
-
-
-                <!-- TOTAL PENGADUAN -->
-
-                <a href="{{ url('/admin/pengaduan') }}"
-                   class="stat-card">
-
-                    <div class="stat-icon report">
-                        📋
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>Total Pengaduan</span>
-
-                        <h2>
-                            {{ $totalPengaduan ?? 26 }}
-                        </h2>
-
-                        <small>
-                            Semua laporan
-                        </small>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- DIPROSES -->
-
-                <a href="{{ url('/admin/pengaduan?status=diproses') }}"
-                   class="stat-card">
-
-                    <div class="stat-icon process">
-                        ⏳
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>Diproses</span>
-
-                        <h2>
-                            {{ $totalDiproses ?? 6 }}
-                        </h2>
-
-                        <small>
-                            Sedang diproses
-                        </small>
-
-                    </div>
-
-                </a>
-
-
-
-                <!-- SELESAI -->
-
-                <a href="{{ url('/admin/pengaduan?status=selesai') }}"
-                   class="stat-card">
-
-                    <div class="stat-icon done">
-                        ✓
-                    </div>
-
-                    <div class="stat-info">
-
-                        <span>Selesai</span>
-
-                        <h2>
-                            {{ $totalSelesai ?? 20 }}
-                        </h2>
-
-                        <small>
-                            Selesai ditindaklanjuti
-                        </small>
-
-                    </div>
-
-                </a>
-
-
+        <!-- Selesai -->
+        <div class="bg-white p-5 rounded-2xl border border-gray-300 shadow-sm flex items-center gap-4">
+            <div class="p-3 bg-emerald-50 rounded-xl text-3xl text-emerald-500">
+                <i class="fa-solid fa-circle-check"></i>
             </div>
-
-
-
-            <!-- ================= CHART ================= -->
-
-            <div class="dashboard-bottom">
-
-
-                <!-- BAR CHART -->
-
-                <div class="chart-card">
-
-                    <div class="chart-header">
-
-                        <div>
-
-                            <h3>
-                                Grafik Pengaduan Bulanan
-                            </h3>
-
-                            <p>
-                                Jumlah pengaduan
-                            </p>
-
-                        </div>
-
-
-                        <select>
-
-                            <option>
-                                Tahun {{ now()->year }}
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="bar-chart">
-
-
-                        <a href="{{ url('/admin/pengaduan?bulan=1') }}"
-                           class="bar-item">
-
-                            <div class="bar"
-                                 style="height:35%;">
-                            </div>
-
-                            <span>Jan</span>
-
-                        </a>
-
-
-                        <a href="{{ url('/admin/pengaduan?bulan=2') }}"
-                           class="bar-item">
-
-                            <div class="bar"
-                                 style="height:50%;">
-                            </div>
-
-                            <span>Feb</span>
-
-                        </a>
-
-
-                        <a href="{{ url('/admin/pengaduan?bulan=3') }}"
-                           class="bar-item">
-
-                            <div class="bar"
-                                 style="height:60%;">
-                            </div>
-
-                            <span>Mar</span>
-
-                        </a>
-
-
-                        <a href="{{ url('/admin/pengaduan?bulan=4') }}"
-                           class="bar-item">
-
-                            <div class="bar"
-                                 style="height:70%;">
-                            </div>
-
-                            <span>Apr</span>
-
-                        </a>
-
-
-                        <a href="{{ url('/admin/pengaduan?bulan=5') }}"
-                           class="bar-item">
-
-                            <div class="bar"
-                                 style="height:88%;">
-                            </div>
-
-                            <span>Mei</span>
-
-                        </a>
-
-
-                        <a href="{{ url('/admin/pengaduan?bulan=6') }}"
-                           class="bar-item">
-
-                            <div class="bar"
-                                 style="height:78%;">
-                            </div>
-
-                            <span>Jun</span>
-
-                        </a>
-
-
-                        <a href="{{ url('/admin/pengaduan?bulan=7') }}"
-                           class="bar-item">
-
-                            <div class="bar"
-                                 style="height:95%;">
-                            </div>
-
-                            <span>Jul</span>
-
-                        </a>
-
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- CATEGORY -->
-
-                <a href="{{ url('/admin/kategori') }}"
-                   class="category-card">
-
-                    <h3>
-                        Kategori Pengaduan Terbanyak
-                    </h3>
-
-
-                    <div class="category-content">
-
-
-                        <div class="donut">
-
-                            <div class="donut-center">
-                                100%
-                            </div>
-
-                        </div>
-
-
-                        <div class="category-list">
-
-
-                            <div>
-
-                                <span class="dot blue"></span>
-
-                                Fasilitas Sekolah
-
-                                <b>40%</b>
-
-                            </div>
-
-
-                            <div>
-
-                                <span class="dot green"></span>
-
-                                Kebersihan
-
-                                <b>25%</b>
-
-                            </div>
-
-
-                            <div>
-
-                                <span class="dot yellow"></span>
-
-                                Guru
-
-                                <b>15%</b>
-
-                            </div>
-
-
-                            <div>
-
-                                <span class="dot red"></span>
-
-                                Bullying
-
-                                <b>10%</b>
-
-                            </div>
-
-
-                            <div>
-
-                                <span class="dot purple"></span>
-
-                                Lainnya
-
-                                <b>10%</b>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </a>
-
-
+            <div>
+                <span class="text-xs font-semibold text-gray-700 block">Selesai</span>
+                <span class="text-3xl font-extrabold text-gray-900 leading-none">20</span>
+                <span class="text-xs text-gray-500 block mt-1">Selesai ditindak lanjuti</span>
             </div>
+        </div>
 
+    </div>
 
-        </section>
+    <!-- Charts Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-    </main>
+        <!-- Bar Chart (Grafik Bulanan) -->
+        <div class="lg:col-span-2 bg-white p-5 rounded-2xl border border-gray-300 shadow-sm">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-gray-800 text-sm">Grafik Pengaduan Bulanan</h3>
+                <select class="text-xs font-semibold border border-gray-300 rounded-lg px-2 py-1 bg-gray-50 text-gray-700 focus:outline-none">
+                    <option>Tahun 2026</option>
+                </select>
+            </div>
+            <div class="h-64">
+                <canvas id="monthlyChart"></canvas>
+            </div>
+        </div>
 
-</div>
+        <!-- Donut Chart (Kategori Pengaduan) -->
+        <div class="bg-white p-5 rounded-2xl border border-gray-300 shadow-sm">
+            <h3 class="font-bold text-gray-800 text-sm mb-4">Kategori Pengaduan Terbanyak</h3>
+            <div class="h-64 flex items-center justify-center">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
 
+    </div>
+@endsection
 
-</body>
+@push('scripts')
+<script>
+    // Grafik Bulanan (Bar Chart)
+    const ctxBar = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'],
+            datasets: [{
+                data: [12, 18, 21, 25, 31, 28, 34],
+                backgroundColor: '#3b82f6',
+                borderRadius: 6,
+                barThickness: 24,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 40,
+                    ticks: { stepSize: 10 }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
+        }
+    });
 
-</html>
+    // Grafik Kategori (Doughnut Chart)
+    const ctxPie = document.getElementById('categoryChart').getContext('2d');
+    new Chart(ctxPie, {
+        type: 'doughnut',
+        data: {
+            labels: ['Fasilitas Sekolah (40%)', 'Kurikulum (25%)', 'Guru (18%)', 'Bullying (10%)', 'Lainnya (7%)'],
+            datasets: [{
+                data: [40, 25, 18, 10, 7],
+                backgroundColor: ['#1d4ed8', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444'],
+                borderWidth: 2,
+                borderColor: '#ffffff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'right',
+                    labels: {
+                        boxWidth: 12,
+                        font: { size: 10, weight: 'bold' }
+                    }
+                }
+            },
+            cutout: '60%'
+        }
+    });
+</script>
+@endpush
