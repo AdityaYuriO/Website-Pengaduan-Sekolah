@@ -1,3 +1,4 @@
+```blade
 <!DOCTYPE html>
 <html lang="id">
 
@@ -40,6 +41,7 @@
 
         <nav class="sidebar-menu">
 
+            <!-- DASHBOARD -->
             <a href="{{ url('/admin/dashboard') }}"
                class="menu-item active">
 
@@ -50,7 +52,9 @@
             </a>
 
 
-            <a href="#" class="menu-item">
+            <!-- KATEGORI -->
+            <a href="{{ url('/admin/kategori') }}"
+               class="menu-item">
 
                 <span>▱</span>
 
@@ -59,7 +63,9 @@
             </a>
 
 
-            <a href="#" class="menu-item">
+            <!-- DATA USER -->
+            <a href="{{ url('/admin/users') }}"
+               class="menu-item">
 
                 <span>♙</span>
 
@@ -68,7 +74,9 @@
             </a>
 
 
-            <a href="#" class="menu-item">
+            <!-- PENGADUAN -->
+            <a href="{{ url('/admin/pengaduan') }}"
+               class="menu-item">
 
                 <span>▤</span>
 
@@ -79,12 +87,16 @@
         </nav>
 
 
-        <form method="POST" action="{{ url('/logout') }}"
+        <!-- LOGOUT -->
+
+        <form method="POST"
+              action="{{ url('/logout') }}"
               class="logout-form">
 
             @csrf
 
-            <button type="submit" class="logout-button">
+            <button type="submit"
+                    class="logout-button">
 
                 <span>↪</span>
 
@@ -120,7 +132,10 @@
             </div>
 
 
-            <div class="admin-profile">
+            <!-- PROFILE ADMIN -->
+
+            <a href="{{ url('/admin/profile') }}"
+               class="admin-profile">
 
                 <div class="admin-avatar">
 
@@ -132,7 +147,7 @@
                     {{ Auth::user()->name ?? 'Admin' }}
                 </strong>
 
-            </div>
+            </a>
 
         </header>
 
@@ -165,7 +180,10 @@
             <div class="stats-grid">
 
 
-                <div class="stat-card">
+                <!-- TOTAL PENGADUAN -->
+
+                <a href="{{ url('/admin/pengaduan') }}"
+                   class="stat-card">
 
                     <div class="stat-icon report">
                         📋
@@ -185,11 +203,14 @@
 
                     </div>
 
-                </div>
+                </a>
 
 
 
-                <div class="stat-card">
+                <!-- DIPROSES -->
+
+                <a href="{{ url('/admin/pengaduan?status=diproses') }}"
+                   class="stat-card">
 
                     <div class="stat-icon process">
                         ⏳
@@ -209,11 +230,14 @@
 
                     </div>
 
-                </div>
+                </a>
 
 
 
-                <div class="stat-card">
+                <!-- SELESAI -->
+
+                <a href="{{ url('/admin/pengaduan?status=selesai') }}"
+                   class="stat-card">
 
                     <div class="stat-icon done">
                         ✓
@@ -233,7 +257,7 @@
 
                     </div>
 
-                </div>
+                </a>
 
 
             </div>
@@ -277,7 +301,9 @@
 
                     <div class="bar-chart">
 
-                        <div class="bar-item">
+
+                        <a href="{{ url('/admin/pengaduan?bulan=1') }}"
+                           class="bar-item">
 
                             <div class="bar"
                                  style="height:35%;">
@@ -285,10 +311,11 @@
 
                             <span>Jan</span>
 
-                        </div>
+                        </a>
 
 
-                        <div class="bar-item">
+                        <a href="{{ url('/admin/pengaduan?bulan=2') }}"
+                           class="bar-item">
 
                             <div class="bar"
                                  style="height:50%;">
@@ -296,10 +323,11 @@
 
                             <span>Feb</span>
 
-                        </div>
+                        </a>
 
 
-                        <div class="bar-item">
+                        <a href="{{ url('/admin/pengaduan?bulan=3') }}"
+                           class="bar-item">
 
                             <div class="bar"
                                  style="height:60%;">
@@ -307,10 +335,11 @@
 
                             <span>Mar</span>
 
-                        </div>
+                        </a>
 
 
-                        <div class="bar-item">
+                        <a href="{{ url('/admin/pengaduan?bulan=4') }}"
+                           class="bar-item">
 
                             <div class="bar"
                                  style="height:70%;">
@@ -318,10 +347,11 @@
 
                             <span>Apr</span>
 
-                        </div>
+                        </a>
 
 
-                        <div class="bar-item">
+                        <a href="{{ url('/admin/pengaduan?bulan=5') }}"
+                           class="bar-item">
 
                             <div class="bar"
                                  style="height:88%;">
@@ -329,10 +359,11 @@
 
                             <span>Mei</span>
 
-                        </div>
+                        </a>
 
 
-                        <div class="bar-item">
+                        <a href="{{ url('/admin/pengaduan?bulan=6') }}"
+                           class="bar-item">
 
                             <div class="bar"
                                  style="height:78%;">
@@ -340,10 +371,11 @@
 
                             <span>Jun</span>
 
-                        </div>
+                        </a>
 
 
-                        <div class="bar-item">
+                        <a href="{{ url('/admin/pengaduan?bulan=7') }}"
+                           class="bar-item">
 
                             <div class="bar"
                                  style="height:95%;">
@@ -351,7 +383,8 @@
 
                             <span>Jul</span>
 
-                        </div>
+                        </a>
+
 
                     </div>
 
@@ -361,7 +394,8 @@
 
                 <!-- CATEGORY -->
 
-                <div class="category-card">
+                <a href="{{ url('/admin/kategori') }}"
+                   class="category-card">
 
                     <h3>
                         Kategori Pengaduan Terbanyak
@@ -382,41 +416,67 @@
 
                         <div class="category-list">
 
+
                             <div>
+
                                 <span class="dot blue"></span>
+
                                 Fasilitas Sekolah
+
                                 <b>40%</b>
+
                             </div>
 
+
                             <div>
+
                                 <span class="dot green"></span>
+
                                 Kebersihan
+
                                 <b>25%</b>
+
                             </div>
 
+
                             <div>
+
                                 <span class="dot yellow"></span>
+
                                 Guru
+
                                 <b>15%</b>
+
                             </div>
 
+
                             <div>
+
                                 <span class="dot red"></span>
+
                                 Bullying
+
                                 <b>10%</b>
+
                             </div>
 
+
                             <div>
+
                                 <span class="dot purple"></span>
+
                                 Lainnya
+
                                 <b>10%</b>
+
                             </div>
+
 
                         </div>
 
                     </div>
 
-                </div>
+                </a>
 
 
             </div>
@@ -428,6 +488,8 @@
 
 </div>
 
+
 </body>
 
 </html>
+```

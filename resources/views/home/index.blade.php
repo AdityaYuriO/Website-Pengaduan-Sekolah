@@ -16,11 +16,14 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <nav class="navbar">
 
-    <div class="logo-area">
+    <a href="#home" class="logo-area">
 
         <img
             src="https://cdn.phototourl.com/free/2026-07-28-7540ffdc-e2ba-4015-a474-4cacaa2dd3b4.jpg"
@@ -32,25 +35,33 @@
             SEKOLAH
         </div>
 
-    </div>
+    </a>
 
 
     <ul class="nav-menu">
 
         <li>
-            <a href="#home">Beranda</a>
+            <a href="#home" class="active">
+                Beranda
+            </a>
         </li>
 
         <li>
-            <a href="#tentang">Tentang</a>
+            <a href="#tentang">
+                Tentang
+            </a>
         </li>
 
         <li>
-            <a href="#informasi">Informasi</a>
+            <a href="#informasi">
+                informasi
+            </a>
         </li>
 
         <li>
-            <a href="#kontak">Kontak</a>
+            <a href="#kontak">
+                kontak
+            </a>
         </li>
 
         <li>
@@ -64,37 +75,49 @@
 </nav>
 
 
-<!-- ================= HERO ================= -->
+
+<!-- =====================================================
+     BERANDA
+===================================================== -->
 
 <section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
 
         <h1>
-            Sampaikan Pengaduan,
-            Bangun Sekolah Lebih Baik
+            PENGADUAN SEKOLAH
         </h1>
 
         <p>
-            Sistem pengaduan sekolah yang memudahkan siswa
-            menyampaikan kritik, saran, dan laporan secara
-            cepat, aman, dan transparan.
+            Sampaikan kritik, saran, maupun pengaduan
+            <br>
+            Anda dengan mudah melalui website ini.
+            <br>
+            Setiap masukan akan menjadi bahan evaluasi
+            <br>
+            untuk menciptakan lingkungan sekolah yang
+            <br>
+            lebih baik.
         </p>
-
-        <a href="{{ route('login') }}" class="btn">
-            Mulai Pengaduan
-        </a>
 
     </div>
 
 </section>
 
 
-<!-- ================= TENTANG ================= -->
+
+<!-- =====================================================
+     TENTANG
+===================================================== -->
 
 <section class="about" id="tentang">
 
     <div class="about-container">
+
+
+        <!-- FOTO -->
 
         <div class="about-image">
 
@@ -106,64 +129,80 @@
         </div>
 
 
+        <!-- TEKS -->
+
         <div class="about-content">
 
-            <h2>
-                Tentang E-Pengaduan
-            </h2>
-
             <p>
-                E-Pengaduan Sekolah merupakan platform digital
-                yang dibuat untuk memudahkan siswa dalam menyampaikan
-                kritik, saran, maupun laporan mengenai lingkungan sekolah.
-                Dengan adanya sistem ini, setiap pengaduan dapat
-                disampaikan dengan lebih mudah, cepat, aman, dan terarah
-                kepada pihak sekolah.
+                Sistem Kritik, Saran, dan Pengaduan sekolah hadir
+                <br>
+                sebagai media
+                <br>
+                bagi siswa untuk menyampaikan kritik, saran, dan
+                <br>
+                pengaduan
+                <br>
+                kepada pihak sekolah.Setiap masukan diharapkan
+                <br>
+                dapat menjadi
+                <br>
+                bahan evaluasi demi meningkatkan kualitas sekolah.
+                <br>
+                Silakan login untuk mengakses seluruh fitur yang
+                <br>
+                tersedia.
             </p>
 
 
+            <!-- ICON -->
+
             <div class="about-icons">
 
-                <div class="icon-box">
 
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/2919/2919592.png"
-                        alt="Mudah"
-                    >
+                <div class="about-icon-box">
 
-                    <h4>
-                        Mudah Digunakan
-                    </h4>
+                    <div class="about-icon">
+                        <i class="fa-solid fa-comment-exclamation"></i>
+                    </div>
 
-                </div>
-
-
-                <div class="icon-box">
-
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/159/159604.png"
-                        alt="Cepat"
-                    >
-
-                    <h4>
-                        Proses Cepat
-                    </h4>
+                    <span>
+                        Tulis Kritik
+                    </span>
 
                 </div>
 
 
-                <div class="icon-box">
 
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"
-                        alt="Aman"
-                    >
+                <div class="about-icon-box">
 
-                    <h4>
-                        Data Aman
-                    </h4>
+                    <div class="about-icon">
+                        <i class="fa-regular fa-thumbs-up"></i>
+                    </div>
+
+                    <span>
+                        Ajukan Saran
+                    </span>
 
                 </div>
+
+
+
+                <div class="about-icon-box">
+
+                    <div class="about-icon">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+
+                    <span>
+                        Pengaduan
+                    </span>
+
+                    <span>
+                        Resmi
+                    </span>
+
+                </div>
+
 
             </div>
 
@@ -174,14 +213,19 @@
 </section>
 
 
-<!-- ================= INFORMASI ================= -->
+
+<!-- =====================================================
+     INFORMASI
+===================================================== -->
 
 <section class="info-section" id="informasi">
 
     <div class="info-container">
 
+
         <h2>
-            Langkah-langkah<br>
+            Langkah-langkah
+            <br>
             pengaduan
         </h2>
 
@@ -194,7 +238,7 @@
             <div class="info-card">
 
                 <div class="info-icon">
-                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-regular fa-user"></i>
                 </div>
 
                 <h3>
@@ -202,6 +246,7 @@
                 </h3>
 
             </div>
+
 
 
             <!-- 2 -->
@@ -219,12 +264,13 @@
             </div>
 
 
+
             <!-- 3 -->
 
             <div class="info-card">
 
                 <div class="info-icon">
-                    <i class="fa-solid fa-file-lines"></i>
+                    <i class="fa-regular fa-file-lines"></i>
                 </div>
 
                 <h3>
@@ -234,12 +280,13 @@
             </div>
 
 
+
             <!-- 4 -->
 
             <div class="info-card">
 
                 <div class="info-icon">
-                    <i class="fa-solid fa-file-arrow-up"></i>
+                    <i class="fa-regular fa-file-arrow-up"></i>
                 </div>
 
                 <h3>
@@ -249,12 +296,13 @@
             </div>
 
 
+
             <!-- 5 -->
 
             <div class="info-card">
 
                 <div class="info-icon">
-                    <i class="fa-solid fa-file-circle-check"></i>
+                    <i class="fa-regular fa-file-circle-check"></i>
                 </div>
 
                 <h3>
@@ -264,12 +312,13 @@
             </div>
 
 
+
             <!-- 6 -->
 
             <div class="info-card">
 
                 <div class="info-icon">
-                    <i class="fa-solid fa-user-check"></i>
+                    <i class="fa-regular fa-user-check"></i>
                 </div>
 
                 <h3>
@@ -282,116 +331,112 @@
         </div>
 
 
-        <a href="{{ route('login') }}" class="info-btn">
+
+        <a
+            href="{{ route('login') }}"
+            class="info-btn"
+        >
             AJUKAN PENGADUAN
         </a>
+
 
     </div>
 
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+
+<!-- =====================================================
+     KONTAK
+===================================================== -->
 
 <section class="contact" id="kontak">
 
-    <div class="contact-title">
+    <div class="contact-container">
 
-        <img
-            src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
-            alt="Contact"
-        >
 
         <h2>
             Contact Us
         </h2>
 
-    </div>
+
+        <div class="contact-wrapper">
 
 
-    <div class="contact-wrapper">
+            <!-- PHONE -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <div>
+
+                    <small>
+                        CONTACT
+                    </small>
+
+                    <h3>
+                        Phone Support
+                    </h3>
+
+                    <p>
+                        +62 812-3456-7890
+                    </p>
+
+                    <p>
+                        +62 821-9876-5432
+                    </p>
+
+                </div>
+
+            </div>
 
 
-        <!-- PHONE -->
 
-        <div class="contact-card">
+            <!-- EMAIL -->
 
-            <div class="contact-icon">
+            <div class="contact-card">
 
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
-                    alt="Phone"
-                >
+                <div class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div>
+
+                    <small>
+                        EMAIL
+                    </small>
+
+                    <h3>
+                        Pengaduan Sekolah
+                    </h3>
+
+                    <p>
+                        pengaduan@smkn1kawali.sch.id
+                    </p>
+
+                    <p>
+                        admin@smkn1kawali.sch.id
+                    </p>
+
+                </div>
 
             </div>
 
-
-            <div class="contact-info">
-
-                <small>
-                    CONTACT
-                </small>
-
-                <h3>
-                    Phone Support
-                </h3>
-
-                <p>
-                    +62 812-3456-7890
-                </p>
-
-                <p>
-                    +62 821-9876-5432
-                </p>
-
-            </div>
 
         </div>
-
-
-        <!-- EMAIL -->
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
-                    alt="Email"
-                >
-
-            </div>
-
-
-            <div class="contact-info">
-
-                <small>
-                    EMAIL
-                </small>
-
-                <h3>
-                    Pengaduan Sekolah
-                </h3>
-
-                <p>
-                    pengaduan@smkn1kawali.sch.id
-                </p>
-
-                <p>
-                    admin@smkn1kawali.sch.id
-                </p>
-
-            </div>
-
-        </div>
-
 
     </div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 

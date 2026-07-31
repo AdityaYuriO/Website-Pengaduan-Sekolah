@@ -1,0 +1,544 @@
+/* =====================================================
+   RIWAYAT PAGE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #eef2f7;
+    color: #111827;
+}
+
+/* =====================================================
+   MAIN WRAPPER
+===================================================== */
+
+.user-dashboard {
+    min-height: 100vh;
+    display: flex;
+    background: #eef2f7;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(160deg, #031a43 0%, #05265b 42%, #0b3f7d 76%, #4389c6 100%);
+    overflow: hidden;
+    z-index: 100;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =====================================================
+   SIDEBAR LOGO
+===================================================== */
+
+.sidebar-logo {
+    width: 100%;
+    padding: 0 20px 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-image {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-image img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-fallback-icon {
+    display: none;
+    color: #ffd21c;
+    font-size: 40px;
+}
+
+.logo-fallback .logo-fallback-icon {
+    display: block;
+}
+
+/* =====================================================
+   SIDEBAR DIVIDER
+===================================================== */
+
+.sidebar-divider {
+    width: 80%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 auto 12px auto;
+}
+
+/* =====================================================
+   SIDEBAR TITLE
+===================================================== */
+
+.sidebar-title {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    padding: 0 20px 25px 20px;
+    text-align: center;
+}
+
+/* =====================================================
+   SIDEBAR MENU
+===================================================== */
+
+.sidebar-menu {
+    width: 100%;
+    padding: 0 15px;
+    flex: 1;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 10px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 25px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.menu-item.active {
+    background: #0759a5;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-icon {
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+.sidebar-bottom {
+    width: 100%;
+    padding: 0 15px 10px 15px;
+}
+
+.sidebar-bottom form {
+    width: 100%;
+}
+
+.logout-button {
+    width: 100%;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.logout-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.logout-icon {
+    font-size: 16px;
+}
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.main-content {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+    background: #ffffff;
+    padding: 25px 40px 20px 40px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.page-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #07518d;
+    letter-spacing: 0.5px;
+}
+
+.page-date {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+.topbar-right .school-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #07518d;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   DASHBOARD CONTENT
+===================================================== */
+
+.dashboard-content {
+    padding: 30px 40px 40px 40px;
+    background: #f8fafc;
+}
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 20px auto;
+}
+
+.page-header p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   SECTION DIVIDER
+===================================================== */
+
+.section-divider {
+    width: 100%;
+    max-width: 950px;
+    height: 2px;
+    background: #e5e7eb;
+    margin: 0 auto 25px auto;
+}
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 950px;
+    margin: 0 auto 20px auto;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0 15px;
+    border: 1px solid #d1d5db;
+    width: 240px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #07518d;
+}
+
+.search-box i {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.search-box input {
+    border: none;
+    padding: 10px 12px;
+    width: 100%;
+    outline: none;
+    font-size: 13px;
+    background: transparent;
+    font-family: "Inter", sans-serif;
+}
+
+.search-box input::placeholder {
+    color: #9ca3af;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-container {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    max-width: 950px;
+    margin: 0 auto;
+    border: 1px solid #e5e7eb;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #07518d;
+}
+
+thead th {
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 13px;
+    color: #374151;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f9fafb;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 70px;
+        padding: 15px 0;
+    }
+
+    .sidebar-logo {
+        padding: 0 10px 8px 10px;
+    }
+
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-image img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar-divider {
+        width: 60%;
+        margin: 0 auto 8px auto;
+    }
+
+    .sidebar-title {
+        display: none;
+    }
+
+    .sidebar-menu {
+        padding: 0 10px;
+    }
+
+    .menu-item {
+        justify-content: center;
+        padding: 12px;
+        font-size: 0;
+    }
+
+    .menu-item span:last-child {
+        display: none;
+    }
+
+    .menu-icon {
+        font-size: 20px;
+        width: auto;
+    }
+
+    .sidebar-bottom {
+        padding: 0 10px;
+    }
+
+    .logout-button {
+        justify-content: center;
+        padding: 12px;
+        font-size: 0;
+    }
+
+    .logout-button span:last-child {
+        display: none;
+    }
+
+    .logout-icon {
+        font-size: 20px;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .topbar {
+        padding: 20px 20px 15px 20px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .topbar-left {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+
+    .page-date {
+        font-size: 12px;
+    }
+
+    .topbar-right .school-title {
+        font-size: 12px;
+    }
+
+    .dashboard-content {
+        padding: 20px 20px 30px 20px;
+    }
+
+    .search-container {
+        justify-content: flex-start;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 550px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+        gap: 5px;
+    }
+
+    .topbar-left {
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .page-title {
+        font-size: 18px;
+    }
+
+    .page-date {
+        font-size: 11px;
+    }
+
+    .topbar-right .school-title {
+        font-size: 11px;
+    }
+
+    .dashboard-content {
+        padding: 15px 15px 25px 15px;
+    }
+
+    .page-header p {
+        font-size: 12px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 12px;
+        min-width: 500px;
+    }
+
+    thead th,
+    tbody td {
+        padding: 10px 14px;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+}

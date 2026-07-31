@@ -1,0 +1,1026 @@
+/* =====================================================
+   WAKASEK - PENGADUAN MASUK + DETAIL (1 Halaman)
+   FULL CSS (tanpa filter dropdown)
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #f0f2f5;
+    color: #111827;
+}
+
+/* =====================================================
+   MAIN WRAPPER
+===================================================== */
+
+.user-dashboard {
+    min-height: 100vh;
+    display: flex;
+    background: #f0f2f5;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(160deg, #031a43 0%, #05265b 42%, #0b3f7d 76%, #4389c6 100%);
+    overflow: hidden;
+    z-index: 100;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-logo {
+    width: 100%;
+    padding: 0 20px 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-image {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-image img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-fallback-icon {
+    display: none;
+    color: #ffd21c;
+    font-size: 40px;
+}
+
+.logo-fallback .logo-fallback-icon {
+    display: block;
+}
+
+.sidebar-divider {
+    width: 80%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 auto 12px auto;
+}
+
+.sidebar-title {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    padding: 0 20px 25px 20px;
+    text-align: center;
+}
+
+.sidebar-menu {
+    width: 100%;
+    padding: 0 15px;
+    flex: 1;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 10px 18px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 25px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.menu-item.active {
+    background: #0759a5;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-icon {
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.sidebar-bottom {
+    width: 100%;
+    padding: 0 15px 10px 15px;
+}
+
+.sidebar-bottom form {
+    width: 100%;
+}
+
+.logout-button {
+    width: 100%;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.logout-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.logout-icon {
+    font-size: 16px;
+}
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.main-content {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    min-height: 100vh;
+    background: #f0f2f5;
+}
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+    background: #ffffff;
+    padding: 16px 40px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.breadcrumb-current {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #07518d;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.date-text {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.school-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #07518d;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   DASHBOARD CONTENT
+===================================================== */
+
+.dashboard-content {
+    padding: 25px 40px 40px 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+    margin-bottom: 20px;
+}
+
+.page-header p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* =====================================================
+   TOOLBAR - HANYA SEARCH
+===================================================== */
+
+.toolbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0 15px;
+    border: 1px solid #d1d5db;
+    width: 280px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #07518d;
+}
+
+.search-box i {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.search-box input {
+    border: none;
+    padding: 10px 12px;
+    width: 100%;
+    outline: none;
+    font-size: 13px;
+    background: transparent;
+    font-family: "Inter", sans-serif;
+}
+
+.search-box input::placeholder {
+    color: #9ca3af;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-container {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1100px;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 13px;
+    color: #374151;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f9fafb;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: #d1d5db;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+.empty-state span {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* =====================================================
+   SECTION DIVIDER
+===================================================== */
+
+.section-divider {
+    width: 100%;
+    height: 2px;
+    background: #e5e7eb;
+    margin: 40px 0 30px 0;
+}
+
+/* =====================================================
+   DETAIL BREADCRUMB
+===================================================== */
+
+.detail-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.detail-breadcrumb .breadcrumb-link {
+    font-size: 14px;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.detail-breadcrumb .breadcrumb-link:hover {
+    color: #07518d;
+}
+
+.detail-breadcrumb .breadcrumb-separator {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.detail-breadcrumb .breadcrumb-current {
+    font-size: 14px;
+    font-weight: 700;
+    color: #07518d;
+}
+
+/* =====================================================
+   DETAIL SECTION
+===================================================== */
+
+.detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-title {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #07518d;
+    margin-bottom: 4px;
+}
+
+/* =====================================================
+   DETAIL CARD
+===================================================== */
+
+.detail-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* =====================================================
+   CARD SUBTITLE
+===================================================== */
+
+.card-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #07518d;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.detail-content {
+    margin-bottom: 16px;
+}
+
+.detail-content:last-child {
+    margin-bottom: 0;
+}
+
+.detail-content .detail-label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.detail-text {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.8;
+    background: #f9fafb;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #f3f4f6;
+}
+
+/* =====================================================
+   BUKTI PENDUKUNG
+===================================================== */
+
+.bukti-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.bukti-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border: 1px solid #f3f4f6;
+    transition: all 0.2s ease;
+}
+
+.bukti-item:hover {
+    background: #f0f4ff;
+    border-color: #07518d;
+}
+
+.bukti-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #e5edf5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #07518d;
+    flex-shrink: 0;
+}
+
+.bukti-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bukti-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.bukti-date {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+/* =====================================================
+   RIWAYAT
+===================================================== */
+
+.riwayat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.riwayat-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    border-left: 4px solid #07518d;
+}
+
+.riwayat-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e5edf5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #07518d;
+    flex-shrink: 0;
+}
+
+.riwayat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.riwayat-status {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.riwayat-date {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    text-decoration: none;
+    background: #ffffff;
+    transition: all 0.2s ease;
+    font-family: "Inter", sans-serif;
+}
+
+.btn-back:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.btn-approve {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #059669, #047857);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inter", sans-serif;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.btn-approve:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+}
+
+.btn-approve:active {
+    transform: translateY(0);
+}
+
+/* =====================================================
+   STATUS BADGE
+===================================================== */
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.status-menunggu {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.status-diproses {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.status-selesai {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-ditolak {
+    background: #fce4ec;
+    color: #dc2626;
+}
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+    .detail-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 70px;
+        padding: 15px 0;
+    }
+
+    .sidebar-logo {
+        padding: 0 10px 8px 10px;
+    }
+
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-image img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sidebar-divider {
+        width: 60%;
+        margin: 0 auto 8px auto;
+    }
+
+    .sidebar-title {
+        display: none;
+    }
+
+    .sidebar-menu {
+        padding: 0 10px;
+    }
+
+    .menu-item {
+        justify-content: center;
+        padding: 12px;
+        font-size: 0;
+    }
+
+    .menu-item span:last-child {
+        display: none;
+    }
+
+    .menu-icon {
+        font-size: 20px;
+        width: auto;
+    }
+
+    .sidebar-bottom {
+        padding: 0 10px;
+    }
+
+    .logout-button {
+        justify-content: center;
+        padding: 12px;
+        font-size: 0;
+    }
+
+    .logout-button span:last-child {
+        display: none;
+    }
+
+    .logout-icon {
+        font-size: 20px;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .topbar {
+        padding: 14px 20px;
+    }
+
+    .breadcrumb-current {
+        font-size: 18px;
+    }
+
+    .date-text {
+        font-size: 12px;
+    }
+
+    .school-title {
+        font-size: 12px;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .detail-card {
+        padding: 18px 20px;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+
+    .bukti-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-back,
+    .btn-approve {
+        justify-content: center;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 550px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 16px;
+        gap: 6px;
+    }
+
+    .topbar-right {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .breadcrumb-current {
+        font-size: 16px;
+    }
+
+    .dashboard-content {
+        padding: 15px;
+    }
+
+    .page-header p {
+        font-size: 12px;
+    }
+
+    .empty-state i {
+        font-size: 36px;
+    }
+
+    .empty-state p {
+        font-size: 14px;
+    }
+
+    .section-divider {
+        margin: 30px 0 20px 0;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .detail-card {
+        padding: 14px 16px;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .detail-value {
+        font-size: 13px;
+    }
+
+    .card-subtitle {
+        font-size: 14px;
+    }
+
+    .detail-text {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+
+    .bukti-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bukti-item {
+        padding: 8px 12px;
+    }
+
+    .riwayat-item {
+        padding: 10px 14px;
+    }
+
+    .riwayat-status {
+        font-size: 12px;
+    }
+
+    .btn-back {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .btn-approve {
+        font-size: 13px;
+        padding: 10px 20px;
+    }
+
+    .detail-breadcrumb .breadcrumb-link,
+    .detail-breadcrumb .breadcrumb-current,
+    .detail-breadcrumb .breadcrumb-separator {
+        font-size: 12px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE - SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+    .topbar {
+        padding: 10px 14px;
+    }
+
+    .breadcrumb-current {
+        font-size: 14px;
+    }
+
+    .school-title {
+        font-size: 11px;
+    }
+
+    .date-text {
+        font-size: 11px;
+    }
+
+    .dashboard-content {
+        padding: 12px;
+    }
+
+    .detail-card {
+        padding: 12px 14px;
+    }
+
+    .detail-label {
+        font-size: 10px;
+    }
+
+    .detail-value {
+        font-size: 12px;
+    }
+
+    .card-subtitle {
+        font-size: 13px;
+    }
+
+    .detail-text {
+        font-size: 12px;
+    }
+
+    .detail-breadcrumb .breadcrumb-link,
+    .detail-breadcrumb .breadcrumb-current,
+    .detail-breadcrumb .breadcrumb-separator {
+        font-size: 11px;
+    }
+
+    .btn-back {
+        font-size: 11px;
+        padding: 6px 14px;
+    }
+
+    .btn-approve {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .empty-state i {
+        font-size: 28px;
+    }
+
+    .empty-state p {
+        font-size: 13px;
+    }
+
+    .empty-state span {
+        font-size: 11px;
+    }
+}
