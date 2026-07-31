@@ -65,6 +65,7 @@ Route::get('/user/dashboard', [SiswaController::class, 'index'])->name('user.das
 |--------------------------------------------------------------------------
 */
 
-Route::get('/wakasesk/dashboard', [WakasekController::class, 'index'])->name('wakasek.dashboard');
+Route::get('/wakasek/dashboard', [WakasekController::class, 'index'])->name('wakasek.dashboard');
 Route::get('/wakasek/pengaduan', [WakasekController::class, 'pengaduanMasuk'])->name('wakasek.pengaduan');
 Route::get('/wakasek/daftar', [WakasekController::class, 'daftarPengaduan'])->name('wakasek.daftar');
+
