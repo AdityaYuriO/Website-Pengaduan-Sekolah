@@ -54,6 +54,9 @@ Route::get('/admin/pengguna', [AdminController::class, 'halamanPengguna'])->name
 */
 
 Route::get('/user/dashboard', [SiswaController::class, 'index'])->name('user.dashboard');
+Route::get('/user/kategori', [SiswaController::class, 'kategori'])->name('user.kategori');
+Route::get('/user//pengaduan', [SiswaController::class, 'pengaduan'])->name('user.pengaduan');
+Route::get('/user/riwayat', [SiswaController::class, 'riwayat'])->name('user.riwayat')
 
 
 

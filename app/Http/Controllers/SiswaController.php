@@ -11,4 +11,19 @@ class SiswaController extends Controller
         $user = Auth::user();
         return view('user.dashboard', compact('user'));
     }
+
+    public function kategori() {
+        $user = Auth::user();
+        return view('user.kategori', compact('user'));
+    }
+
+    public function pengaduan() {
+        $user = Auth::user();
+        return view('user.pengaduan', compact('user'));
+    }
+
+    public function riwayat() {
+        $user = Auth::user();
+        return view('user.riwayat', compact('user') );
+    }
 }
