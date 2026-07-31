@@ -87,10 +87,7 @@
         </nav>
 
 
-        <!-- LOGOUT -->
-
-        <form method="POST"
-              action="{{ url('/logout') }}"
+        <form method="POST" action="{{ route('logout') }}"
               class="logout-form">
 
             @csrf
@@ -144,7 +141,7 @@
                 </div>
 
                 <strong>
-                    {{ Auth::user()->name ?? 'Admin' }}
+                    {{ $user->name }}
                 </strong>
 
             </a>
@@ -164,7 +161,7 @@
 
                 <h1>
                     Selamat Datang,
-                    {{ Auth::user()->name ?? 'Admin' }}
+                    {{ $user->name }}
                 </h1>
 
                 <p>
@@ -492,4 +489,3 @@
 </body>
 
 </html>
-```
